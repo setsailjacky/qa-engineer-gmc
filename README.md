@@ -6,76 +6,34 @@ We personally don't recommend going on beyond this 1 hour as we wouldn't want yo
 
 # Context
 
-We are developing a simple messaging application similar to whatsapp that allows users to talk to other users with text. However we start to notice users asking to send in other mediums such as images, files, videos, etc. **But given our current implementation of if/else statements this is not a scalable approach and definitely isn't maintainable by other developers!**
-
-For example our component currently looks like this:
-
-```typescript
-// This is a contrived example
-// ! We don't want this!
-function Message: React.FC ({type, content}) {
-    if(type === 'text') return (<span>{content}</span>)
-    else if(type === 'file') return (<a download href="...">...</a>)
-}
-```
-
+We have developed a simple messaging application similar to whatsapp that allows users to talk to other users with text. However we notice that we don't have any test for this application. Seems it would be nicer to have enough tests.
 
 # Goal
 
-**You should develop a generic message component that takes in a message and render the correct UI.** You will be given a set of conversation data which you can find in `src/fixtures/conversation` and the corresponding types in `src/types/messages` (we assume that you already know how to fetch data from an api so we've abstracted that out)
+You will be given a react application that lacks tests, and your goal is to design your own tests to test through the application. You can also propose how to improve the application, so that it can provide better quality and experience.
 
-**Please take inspiration on how compound components work: https://components.looker.com/getting-started/extending/**
+There are 3 message types that we support, these include:
 
-There are 3 message types that we want to support, these include:
+1. **Text**
+2. **Image**
+3. **Attachment**
 
-1. **Text** (both as a sender and receiver)
-2. **Image** (Should show a preview)
-3. **Attachment** (these are just PDF attachments)
+You can take a look at the application [here](https://setsailjacky.github.io/qa-engineer-gmc/).
 
-If you need some references of what they might look like you can find them below.
-
-## Image Message
-
-![](readme-images/image.png)
-
-## Text Message
-
-![](readme-images/text.png)
-
-## Attachment
-
-We'll leave this to your imagination!
-
-# Test Cases
+# Example Test Cases
 
 ### All Messages
 
-- Should display on the left if not from an `agent`
-- Should display on the right if from an `agent`
+- Should display on the correct side (left or right)
 - Should include a readable timestamp
 
-### Text
-
-- Should show the text content
-
-### Image
-
-- Should show the image as a preview
-
-### Attachment
-
-- Should show a download button to download the attachment.
+**You should propose your own plan on test cases!**
 
 # Before you get started!
 
-There is some predefined data inside the `src/fixtures` folder which you will need to use so you don't need to define the data structures yourself.
+The codes are inside `/src` folder, please take some time to read it through.
 
 **Also** If you're not familiar with typescript that's ok, give it your best shot!
-
-# Extra Credit
-
-- Write the interfaces for the data
-- How would you implement test cases for your components?
 
 # Running your App
 
